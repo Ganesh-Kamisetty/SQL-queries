@@ -1,0 +1,17 @@
+create table Programmer(
+    Employeeid  int(5) unique,
+    Projectid	varchar(3),
+    Firstname	varchar(30),
+    Lastname	varchar(30),
+    Hiredate	date,
+    Language	varchar(15),
+    Taskno	int(2),
+    Previlage	varchar(25)
+);
+insert into Programmer values(201,'NPR','Savrav','Gupta','1995-01-01','C++',21,'Secret'),(390,'BLR','Pinky','Ghosh','1996-01-05','C++',11,'Top Secret'),(789,'PNE','Praveen','Agarwal','1999-08-31','Java',11,'Secret'),(134,'CHN','Supriya','Chaudhury','1997-07-15','VB',22,'Top Secret'),(896,'HYD','Ranjit','Jha','1998-06-15','Java',13,'Confidential'),(345,'CHN','Peter','John','1999-11-15','VB',25,''),(563,'BLR','Andy','Anderson','1914-03-15','Java',28,'Top Secret');
+select * from Programmer;
+select Firstname,Lastname from Programmer where Projectid = 'CHN';
+select Firstname,Lastname from Programmer where Projectid = 'CHN' and Previlage = 'Top Secret';
+select count(Employeeid) from Programmer where Projectid = 'BLR';
+select * from Programmer where taskno = (select min(taskno) from Programmer);
+select Language from Programmer where Firstname like 'P%';
